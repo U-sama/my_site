@@ -16,7 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf.urls.static import static # to setup the directory and url that will be served to the outside wold
+from django.conf import settings # to get the MEDIA_ROOT & MEDIA_URL
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include('blog.urls'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # setting up the URL & ROOT to MEDIA for the user tointeract with
