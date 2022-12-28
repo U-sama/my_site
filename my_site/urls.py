@@ -20,5 +20,6 @@ from django.conf.urls.static import static # to setup the directory and url that
 from django.conf import settings # to get the MEDIA_ROOT & MEDIA_URL
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include('blog.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # setting up the URL & ROOT to MEDIA for the user tointeract with
+    path("", include('blog.urls'))] # setting up the URL & ROOT to MEDIA for the user tointeract with
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+#     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # make django serve our static files automaticly
